@@ -55,8 +55,9 @@ Rails.application.routes.draw do
   get "/copays/new", :controller => "copays", :action => "new"
   post "/create_copay", :controller => "copays", :action => "create"
 
+root to: "copays#index"
   # READ
-  get "/copays", :controller => "copays", :action => "index"
+  # get "/copays", :controller => "copays", :action => "index"
   get "/copays/:id", :controller => "copays", :action => "show"
 
   # UPDATE
