@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @copay.errors.any? %>
+  <% @copay.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Copay #<%= @copay.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_copay/<%= @copay.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @copay.name %>">
+      </div>
+
+      <!-- Label and input for pay_as_little_as -->
+      <div class="form-group">
+        <label for="pay_as_little_as" class="control-label">
+          Pay as little as
+        </label>
+
+        <input type="text" id="pay_as_little_as" name="pay_as_little_as" placeholder="Pay as little as" class="form-control" value="<%= @copay.pay_as_little_as %>">
+      </div>
+
+      <!-- Label and input for max_saving -->
+      <div class="form-group">
+        <label for="max_saving" class="control-label">
+          Max saving
+        </label>
+
+        <input type="text" id="max_saving" name="max_saving" placeholder="Max saving" class="form-control" value="<%= @copay.max_saving %>">
+      </div>
+
+      <!-- Label and input for cap -->
+      <div class="form-group">
+        <label for="cap" class="control-label">
+          Cap
+        </label>
+
+        <input type="text" id="cap" name="cap" placeholder="Cap" class="form-control" value="<%= @copay.cap %>">
+      </div>
+
+      <!-- Label and input for url -->
+      <div class="form-group">
+        <label for="url" class="control-label">
+          Url
+        </label>
+
+        <input type="text" id="url" name="url" placeholder="Url" class="form-control" value="<%= @copay.url %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @copay.user_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Copay
+      </button>
+      or
+      <a href="/copays/<%= @copay.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
