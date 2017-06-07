@@ -18,7 +18,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @copays.each do |copay| %>
+    <% @copays.sort {|a,b| a.name <=> b.name }.each do |copay| %>
       <tr>
         <td><%= copay.name %></td>
         <td><%= copay.pay_as_little_as %></td>
