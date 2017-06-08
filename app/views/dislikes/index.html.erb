@@ -14,7 +14,7 @@
         <th>Actions</th>
       </tr>
 
-      <% @dislikes.each do |dislike| %>
+      <% current_user.dislikes.each do |dislike| %>
 
       <tr>
         <td><%= dislike.user_id %></td>
