@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @comment.errors.any? %>
-  <% @comment.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @comment.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header">
@@ -28,28 +28,33 @@
       </div>
 
       <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
+      <!-- <div class="form-group">
+      <label for="user_id" class="control-label">
+      User
+    </label>
 
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @comment.user_id %>">
-      </div>
+    <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @comment.user_id %>">
+  </div> -->
 
-      <!-- Label and input for copay_id -->
-      <div class="form-group">
-        <label for="copay_id" class="control-label">
-          Copay
-        </label>
+  <div class="form-group">
 
-        <input type="text" id="copay_id" name="copay_id" placeholder="Copay" class="form-control" value="<%= @comment.copay_id %>">
-      </div>
-
-      <button class="btn btn-success">
-        Create Comment
-      </button>
-      or
-      <a href="/comments">Cancel</a>
-    </form>
+    <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%=current_user.id %>">
   </div>
+
+  <!-- Label and input for copay_id -->
+  <div class="form-group">
+    <label for="copay_id" class="control-label">
+      Copay
+    </label>
+
+    <input type="text" id="copay_id" name="copay_id" placeholder="Copay" class="form-control" value="<%= @comment.copay_id %>">
+  </div>
+
+  <button class="btn btn-success">
+    Create Comment
+  </button>
+  or
+  <a href="/comments">Cancel</a>
+</form>
+</div>
 </div>
