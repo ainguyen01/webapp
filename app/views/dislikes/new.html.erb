@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @dislike.errors.any? %>
-<% @dislike.errors.full_messages.each do |message| %>
-<div class="alert alert-dismissable alert-danger">
-  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  <%= message %>
-</div>
-<% end %>
+  <% @dislike.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
 <% end %>
 
 <div class="page-header">
@@ -19,32 +19,28 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
       <!-- Label and input for user_id -->
-      <!-- <div class="form-group">
-      <label for="user_id" class="control-label">
-      User
-    </label>
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
 
-    <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
-  </div> -->
-  <div class="form-group">
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @dislike.user_id %>">
+      </div>
 
-    <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%=current_user.id %>">
+      <!-- Label and input for copay_id -->
+      <div class="form-group">
+        <label for="copay_id" class="control-label">
+          Copay
+        </label>
+
+        <input type="text" id="copay_id" name="copay_id" placeholder="Copay" class="form-control" value="<%= @dislike.copay_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Dislike
+      </button>
+      or
+      <a href="/dislikes">Cancel</a>
+    </form>
   </div>
-
-  <!-- Label and input for copay_id -->
-  <div class="form-group">
-    <label for="copay_id" class="control-label">
-      Copay
-    </label>
-
-    <input type="text" id="copay_id" name="copay_id" placeholder="Copay" class="form-control" value="<%= @dislike.copay_id %>">
-  </div>
-
-  <button class="btn btn-success">
-    Create Dislike
-  </button>
-  or
-  <a href="/dislikes">Cancel</a>
-</form>
-</div>
 </div>
