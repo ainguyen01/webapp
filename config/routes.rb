@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   devise_for :users
   # Routes for the Request resource:
@@ -57,7 +58,8 @@ Rails.application.routes.draw do
   post "/create_copay", :controller => "copays", :action => "create"
 
 
-root to: "copays#index"
+  root to: "copays#index"
+
   # READ
   # get "/copays", :controller => "copays", :action => "index"
   get "/copays/:id", :controller => "copays", :action => "show"
