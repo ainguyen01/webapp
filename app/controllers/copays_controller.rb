@@ -1,8 +1,16 @@
 class CopaysController < ApplicationController
+
+
   def index
     @copays = Copay.all
 
-    render("copays/index.html.erb")
+      if params[:search]
+        @copays = Copay.search(params[:search]).order("created_at DESC")
+      else
+        @copays = Copay.all.order("created_at DESC")
+      end
+
+      render("copays/index.html.erb")
   end
 
   def show

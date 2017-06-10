@@ -1,6 +1,10 @@
 
 Rails.application.routes.draw do
   devise_for :users
+
+  get "/pages/:page" => "pages#show"
+  root "pages#show", page: "home"
+
   # Routes for the Request resource:
   # CREATE
   get "/requests/new", :controller => "requests", :action => "new"
@@ -58,10 +62,11 @@ Rails.application.routes.draw do
   post "/create_copay", :controller => "copays", :action => "create"
 
 
-  root to: "copays#index"
+  # root to: "copays#index"
 
   # READ
-  # get "/copays", :controller => "copays", :action => "index"
+  get "/copays/search", :controller => "copays", :action => "search"
+  get "/copays", :controller => "copays", :action => "index"
   get "/copays/:id", :controller => "copays", :action => "show"
 
   # UPDATE
